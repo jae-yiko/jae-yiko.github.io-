@@ -1,0 +1,86 @@
+*{/*this is to get rid of the defult padding and margin in the webpage*/
+    padding: 0;
+    margin: 0;
+}
+
+#game{/*border of the game*/
+    width: 400px;
+    height: 500px;
+    border: 5px solid purple;
+    margin: auto;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBbCtGEa24rM5RjH_DkY5RdBU7XWhwJmnjQqVm_5_Yhbax2XHX3EiTDtnu-Vmq_d9i0JY&usqp=CAU;');
+    background-repeat: no-repeat;/*stops image from repeat being shown multiple times in the game border because the original image is small*/
+    background-size: 400px 500px;/*made the original image fatter and longer (exactly the same size as the game border width and height*/
+    display: block;
+    overflow: hidden;
+}
+
+#character1{/*character1 looks*/
+    width: 20px;
+    height: 20px;
+    background-color: rgb(241, 87, 112);
+    position: relative; /*brings character down*/
+    top: 20px; /*480px game height is 500px and character height is 20px 500-20=480px so that it touches the ground*/
+    left:180px;
+}
+
+#character2{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /*what makes it round*/
+    background-color: #9ef0ca;
+    position: relative; /*brings character down*/
+    top: 0px; /*460pxgame height is 500px and character height is 20px 500-20=480px so that it touches the ground*/
+    left:200px;
+    
+}
+
+.land{
+    width: 400px;
+    height: 10px;
+    background-color: rgb(248, 242, 248);
+    margin-bottom: 40px;/*space between each land*/
+
+}
+
+.hole1{
+    width:50px;
+    height:10px;
+    background-color:rgb(252, 201, 201);
+    position: relative;
+
+}
+
+.score{
+    display: table-row;
+}
+
+div{
+    position: relative;
+    text-align: center;
+    font-family: Monospace;
+    font-weight: bold;
+    font-size: 30px;
+    color:rgb(236, 147, 177)
+}
+
+h1{
+    position: relative;
+    text-align: center;
+    font-family: Monospace;
+    font-size: 70px;
+    color:rgb(162, 150, 250)
+}
+
+body{
+    background-color: rgb(220, 252, 244);
+}
+
+p{
+    padding-top: 50px;
+    padding-left: 40px;
+    font-family: Monospace;
+    font-weight: bold;
+    font-size: 20px;
+    color:rgb(255, 197, 89)
+}
