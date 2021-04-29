@@ -1,19 +1,17 @@
-//https://www.youtube.com/watch?v=gX3gSJ43f7I      1.24     https://www.youtube.com/watch?v=bG2BmmYr9NQ 
-
 var interval;
 var bothKey = 0;
 var landArray = [1,2,3,4,5,6,7,8,9,10];
 var randomer = [];//store random1 numbers that we are going to be generating in our forloop
-var platform1 = 0;//keeps track of what landarray character is on 
-var platform2 = 0;
+var platform1 = 0;//keeps track of what landarray character1 is on 
+var platform2 = 0;//keeps track of what landarray character2 is on
 var checkforFall = false;
 var checknextRound = false;
-var totalSquare = 0;
-var totalCircle = 0;
+var totalSquare = 0;//stores the score for the square
+var totalCircle = 0;//stores the score for the circle
 
 //everything in parseInt turns into a string
 //character1 comupted style is grabed by window.getComputedStyle 
-
+//nextround function means after round1 when character 1 or 2 reaches the last land it will recreate the characters to the top of the land
 function nextRound()
 {//if square or circle square =1 then reset the game but save the score
     if (platform1 == 10 || platform2 == 10)
@@ -38,36 +36,36 @@ function nextRound()
 
         checknextRound = false;
 
-        fallgame();
+        fallgame();//this is hadded here so that the land and hole is recreated in the upcoming rounds
     }
 }
 
-score();
+score();//calling the score function
 function score()
 {
-    //var circleScore = 0;
+//if platform1 meaning that character1 is on 10 then
     if (platform1 == 10)
-    {
+    {//character1 gets 1 point
         totalSquare++
         document.getElementById("square").innerHTML = "Square: " + totalSquare;
-        checknextRound = true
-        //if this is true then change the hole arragment
+        checknextRound = true//when character1 gets 1 point then 
         if(checknextRound == true)
         {
-            console.log("balh");
-            nextRound();
-            if(totalSquare == 2)
+            console.log("blah");//this is to check on the console of the webpage to see if it is working
+            nextRound();//after a point is given to character1 the round restarts for round2
+            if(totalSquare == 2)//because this is a 3 round game. If character1 wins 2 points then they win
             {
                 document.getElementById("square").innerHTML = "SQUARE YOU WIN!";
             
-                if (platform1 == 10)
+                if (platform1 == 10)//this is for some reason needed in order for line 58 to work
                 {
-                    console.log("balh1");
+                    console.log("blah1");
                 }
             }
         }
     }    
     
+    //if platform2 meaning that character2 is on 10 then
     if (platform2 == 10)
     {
         totalCircle++
@@ -75,7 +73,7 @@ function score()
         checknextRound = true
         if(checknextRound == true)
         {
-            console.log("asdg");
+            console.log("blah3");
             nextRound();
             if(totalCircle == 2)
             {
@@ -83,18 +81,18 @@ function score()
 
                 if (platform1 == 10)
                 {
-                    console.log("balh2");
+                    console.log("blah4");
                 }
             }
         }
     }
 }
 
-
+//falling1 function is for character1 to fall through the holes of the lands
 function falling1(left,character)
 {
     var topCheck = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-    for(let j=0; j<landArray.length; j++)
+    for(let j=0; j<landArray.length; j++)//from land 0-9
     {
         if(left >= randomer[platform1] && left <= randomer[platform1] + 50)//is left more than random1
         {
@@ -107,7 +105,7 @@ function falling1(left,character)
             {
                 platform1++;
                 checkforFall= false;//stops character from falling because I am now on a new platform
-                score();
+                score();//then give the point to that character
             }
         }
     }
@@ -136,7 +134,7 @@ function falling2(left,character)
 }
 
 
-function moveLeft1()
+function moveLeft1()//moves character1 to the left
 {
     let character1 = document.getElementById("character1");
     let left = parseInt(window.getComputedStyle(character1).getPropertyValue("left"));
@@ -144,10 +142,10 @@ function moveLeft1()
     {
         character1.style.left = left - 2 + "px";
     }
-    falling1(left, character1);
+    falling1(left, character1);//makes character1 fall when using the right key over a hole
 }
 
-function moveRight1()
+function moveRight1()//moves character1 to the right
 {
     let character1 = document.getElementById("character1");
     let left = parseInt(window.getComputedStyle(character1).getPropertyValue("left"));
@@ -155,10 +153,10 @@ function moveRight1()
     {
         character1.style.left = left + 2 + "px";
     }
-    falling1(left,character1);
+    falling1(left,character1);//makes character1 fall when using the left key over a hole
 }
 
-function moveLeft2()
+function moveLeft2()//move character2 to the left
 {
     let character2 = document.getElementById("character2");
     let left = parseInt(window.getComputedStyle(character2).getPropertyValue("left"));
@@ -166,10 +164,10 @@ function moveLeft2()
     {
         character2.style.left = left - 2 + "px";
     }
-    falling2(left,character2);
+    falling2(left,character2);//makes character2 fall when using the A key over a hole
 }
 
-function moveRight2()
+function moveRight2()//moves character2 to the right
 {
     let character2 = document.getElementById("character2");
     let left = parseInt(window.getComputedStyle(character2).getPropertyValue("left"));
@@ -177,7 +175,7 @@ function moveRight2()
     {
         character2.style.left = left + 2 + "px";
     }
-    falling2(left,character2);
+    falling2(left,character2);//makes character2 fall when using the D key over a hole
 }
 document.addEventListener("keydown", event => 
 {
