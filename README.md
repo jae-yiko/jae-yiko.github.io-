@@ -1,7 +1,18 @@
-My first module 1 game project called Fall Faster.
-Fall Faster: Game developed by utilizing HTML, CSS, and JavaScript all from VSC2. 
-Designed as a two player game with maximum three rounds before the winner is determined.
-Currently, an incompleted game due to some bugs.
+#Fall Faster
+An arcade style game on PC for two players on a single keyboard, best two out of three rounds.
 
-Feel free to check it out!
-https://jae-yiko.github.io/jae-yiko.github.io-/
+##Description
+Two characters must race each other to the bottom of the screen in order to win that round.
+Utilized: HTML, CSS, and JavaScript in Visual Studio Code. 
+
+
+###Executing Program
+1) download the code
+2) npm start
+
+##Bugs
+Some bugs I plan to fix in the future:
+1) The holes that the characters fall through are sometimes inaccurate.
+
+##Future Plans of Implementations
+1) Implement a start button for the game
