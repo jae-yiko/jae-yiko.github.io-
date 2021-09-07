@@ -10,4 +10,4 @@ Some bugs I plan to fix in the future:
 1) The holes that the characters fall through are sometimes inaccurate.
 
 ## Future Plans of Implementations
-1) Implement a start button for the game
+1) Implement a start button for the game.
